@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -eu -o pipefail
 shopt -s failglob
 
@@ -9,7 +8,7 @@ tar xJf "Python-$1.tar.xz"
 rm "Python-$1.tar.xz"
 pushd "Python-$1"
 ./configure
-make
-make test
+make -j
+make test -j16
 popd
 popd
